@@ -1,0 +1,1 @@
+payload uses VirtualAllocEx then WriteProcessMemory and calls OpenProcess, also tries connect to C2 and IsDebuggerPresent check

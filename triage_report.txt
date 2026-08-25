@@ -1,0 +1,41 @@
+﻿======================================================================
+              AUTOMATED STATIC ANALYSIS TRIAGE TOOL
+======================================================================
+Target File       : archive.zip
+Full Path         : c:\Users\hp\Desktop\StaticTriageTool\TestSamples\archive.zip
+File Size         : 236 bytes (0.00 MB)
+SHA-256           : 1C55E11CCA9D8A1FD612A11683C9DE062153ADCD41CCB7761B6D886D310320D2
+Container Type    : ZIP-family archive (structural magic verified)
+Scan Layers       : ASCII (Latin-1 mapped) + Windows UTF-16LE wide-char
+Analysis Boundary : Heuristic string/byte scan, not a PE-import-table-aware analysis
+----------------------------------------------------------------------
+Archive Entries Scanned : 1
+Anomalous/Skipped Items : 0
+----------------------------------------------------------------------
+
+[THREAT INDICATORS IDENTIFIED]
+
+Category: Anti-Analysis / Anti-Sandbox
+  Flag: IsDebuggerPresent  (occurrences: 1)
+    @ 0x0000000000000068  [archive.zip::suspicious.txt]
+
+Category: Memory Allocation / Injection
+  Flag: VirtualAllocEx  (occurrences: 1)
+    @ 0x000000000000000D  [archive.zip::suspicious.txt]
+  Flag: WriteProcessMemory  (occurrences: 1)
+    @ 0x0000000000000021  [archive.zip::suspicious.txt]
+
+Category: Network & C2 Foundations
+  Flag: connect  (occurrences: 1)  [CONTEXT WARNING: high natural-text noise flag]
+    @ 0x0000000000000056  [archive.zip::suspicious.txt]
+
+Category: Process Hijacking
+  Flag: OpenProcess  (occurrences: 1)
+    @ 0x000000000000003E  [archive.zip::suspicious.txt]
+
+======================================================================
+RESULT: THREAT INDICATORS IDENTIFIED.
+Distinct flags matched: 5; total occurrences: 5.
+Reminder: Heuristic string/byte scan, not a PE-import-table-aware analysis.
+Exit code: 1
+======================================================================
